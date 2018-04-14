@@ -1,0 +1,9 @@
+{
+    "name": "electron-parcel-template",
+    "version": "1.0.0",
+    "description": "An Electron app template with Parceljs, Pugjs, and Stylus configured.",
+    "main": "index.js",
+    "repository": "https://github.com/reed-jones/electron-parcel-template",
+    "author": "Reed Jones <reedjones@reedjones.com",
+    "license": "MIT"
+}
