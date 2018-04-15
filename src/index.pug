@@ -1,0 +1,19 @@
+html
+  head
+    meta(charset="UTF-8")
+    title Hello World!
+    link(rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro")
+    link(rel="stylesheet" href="./style/main.styl")
+  body
+    h1 Hello World!
+
+    //- All of the Node.j APIs are available in this renderer process.
+    p We are using Node.js v#[script document.write(process.versions.node)],
+      |  Chromium #[script document.write(process.versions.chrome)],
+      |  and Electron #[script document.write(process.versions.electron)]
+
+    //- message contents filled from message.js
+    #msg
+
+    //- You can also require other files to run in this process
+    script(src='ts/renderer.ts')

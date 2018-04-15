@@ -1,9 +1,20 @@
 {
-    "name": "electron-parcel-template",
-    "version": "1.0.0",
-    "description": "An Electron app template with Parceljs, Pugjs, and Stylus configured.",
-    "main": "index.js",
-    "repository": "https://github.com/reed-jones/electron-parcel-template",
-    "author": "Reed Jones <reedjones@reedjones.com",
-    "license": "MIT"
+  "name": "electron-parcel-template",
+  "version": "1.0.0",
+  "description": "An Electron app template with Parceljs, Pugjs, and Stylus configured.",
+  "main": "index.js",
+  "repository": "https://github.com/reed-jones/electron-parcel-template",
+  "author": "Reed Jones <reedjones@reedjones.com",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron ."
+  },
+  "devDependencies": {
+    "electron": "^2.0.0-beta.7",
+    "execa": "^0.10.0",
+    "parcel-bundler": "^1.7.0",
+    "pug": "^2.0.3",
+    "stylus": "^0.54.5",
+    "typescript": "^2.8.1"
+  }
 }
