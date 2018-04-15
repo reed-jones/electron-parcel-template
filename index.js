@@ -18,13 +18,28 @@ const compileStep = index => {
   })
 }
 
-const createWindow = () => {
-  compileStep('src/index.pug').then(d => {
-    mainWindow = new BrowserWindow({ width: 800, height: 600 })
-    mainWindow.loadURL(`http://localhost:1234`)
-    //   mainWindow.webContents.openDevTools()
-    mainWindow.on('closed', () => (mainWindow = null))
+const runTests = () => {
+  let resolved = false
+  return new Promise((resolve, reject) => {
+    execa('jest', ['--watchAll']).stderr.on('data', data => {
+      console.log(`${data}`)
+      if (!resolved) {
+        resolved = true
+        resolve()
+      }
+    })
   })
+}
+
+const createWindow = () => {
+  compileStep('src/index.pug')
+    .then(d => runTests())
+    .then(d => {
+      mainWindow = new BrowserWindow({ width: 800, height: 600 })
+      mainWindow.loadURL(`http://localhost:1234`)
+      //   mainWindow.webContents.openDevTools()
+      mainWindow.on('closed', () => (mainWindow = null))
+    })
 }
 app.on('ready', createWindow)
 app.on('window-all-closed', () => app.quit())
